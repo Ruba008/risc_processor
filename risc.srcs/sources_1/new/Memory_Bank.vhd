@@ -45,16 +45,19 @@ end Memory_Bank;
 architecture Behavioral of Memory_Bank is
     type memory_array is array (255 downto 0) of std_logic_vector(7 downto 0);
     signal memory: memory_array := (others => (others => '0'));
+    signal aux: std_logic_vector(7 downto 0);
 begin
-    process (CLK)
+    memory_bank_process: process (CLK)
     begin
         if CLK'event and CLK='1' then
             if RST = '1' then
                 memory <= (others => (others => '0'));
-            elsif RW = '1' then
+            elsif RW = '0' then
                 memory(to_integer(unsigned(address))) <= DATA;
+            elsif RW = '1' then
+                aux <= memory(to_integer(unsigned(address)));
             end if;
         end if;
     end process;
-    S <= memory(to_integer(unsigned(address)));
+    S <= aux when RW = '1' else (others => 'U');
 end Behavioral;
