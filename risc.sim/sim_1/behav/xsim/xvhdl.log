@@ -1,2 +1,2 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "/home/ruba/risc/risc.srcs/sources_1/new/Memory_Bank.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'Memory_Bank'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/ruba/risc/risc.srcs/sim_1/new/Register_Bank_test.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Register_Bank_test'

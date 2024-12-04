@@ -1,9 +1,10 @@
 Vivado Simulator v2023.1
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: /tools/Xilinx/Vivado/2023.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot Memory_Bank_test_behav xil_defaultlib.Memory_Bank_test -log elaborate.log 
+Running: /tools/Xilinx/Vivado/2023.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot Register_Bank_test_behav xil_defaultlib.Register_Bank_test -log elaborate.log 
 Using 8 slave threads.
 Starting static elaboration
+WARNING: [VRFC 10-4940] 'br' remains a black box since it has no binding entity [/home/ruba/risc/risc.srcs/sim_1/new/Register_Bank_test.vhd:62]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
@@ -11,9 +12,5 @@ Time Resolution for simulation is 1ps
 Compiling package std.standard
 Compiling package std.textio
 Compiling package ieee.std_logic_1164
-Compiling package ieee.std_logic_arith
-Compiling package ieee.std_logic_unsigned
-Compiling package ieee.numeric_std
-Compiling architecture behavioral of entity xil_defaultlib.Memory_Bank [memory_bank_default]
-Compiling architecture behavioral of entity xil_defaultlib.memory_bank_test
-Built simulation snapshot Memory_Bank_test_behav
+Compiling architecture behavioral of entity xil_defaultlib.register_bank_test
+Built simulation snapshot Register_Bank_test_behav

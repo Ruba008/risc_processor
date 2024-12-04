@@ -3,12 +3,12 @@
 # SW Build 3865809 on Sun May  7 15:04:56 MDT 2023
 # IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
 # SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
-# Start of session at: Thu Nov 21 23:04:49 2024
-# Process ID: 29754
+# Start of session at: Sun Nov 24 01:55:58 2024
+# Process ID: 10094
 # Current directory: /home/ruba/risc/risc.runs/synth_1
-# Command line: vivado -log Memory_Bank.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Memory_Bank.tcl
-# Log file: /home/ruba/risc/risc.runs/synth_1/Memory_Bank.vds
+# Command line: vivado -log Register_Bank.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Register_Bank.tcl
+# Log file: /home/ruba/risc/risc.runs/synth_1/Register_Bank.vds
 # Journal file: /home/ruba/risc/risc.runs/synth_1/vivado.jou
-# Running On: Ruba, OS: Linux, CPU Frequency: 4199.973 MHz, CPU Physical cores: 4, Host memory: 16591 MB
+# Running On: Ruba, OS: Linux, CPU Frequency: 4293.589 MHz, CPU Physical cores: 4, Host memory: 16590 MB
 #-----------------------------------------------------------
-source Memory_Bank.tcl -notrace
+source Register_Bank.tcl -notrace
