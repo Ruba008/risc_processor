@@ -45,7 +45,7 @@ end IP_compteur;
 architecture Behavioral of IP_compteur is
 signal current_addr : std_logic_vector(7 downto 0) := (others => '0'); 
 begin
-    process(CLK, RST)
+    ip_process: process(CLK, RST)
     begin
         if RST = '0' then
             --rst
@@ -57,7 +57,7 @@ begin
             elsif EN = '0' then
                 current_addr <= current_addr + 1;
             end if;
-       end if;
-      end process;
+        end if;
+     end process;
     Dout <= current_addr;      
 end Behavioral;

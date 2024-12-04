@@ -48,7 +48,7 @@ architecture Behavioral of Register_Bank is
 type array_reg is array (0 to 15) of std_logic_vector(7 downto 0);
 signal registers : array_reg := (others => (others => '0'));
 begin
-    process (CLK)
+    register_bank_process: process (CLK)
     begin
         if CLK'event and CLK='1' then
             if RST = '1' then
