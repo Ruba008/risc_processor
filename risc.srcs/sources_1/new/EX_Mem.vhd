@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 12/04/2024 09:36:24 PM
+-- Create Date: 12/04/2024 10:57:18 PM
 -- Design Name: 
--- Module Name: D_FlipFlop - Behavioral
+-- Module Name: EX_Mem - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -31,19 +31,30 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity D_FlipFlop is
-    Port ( D : in STD_LOGIC;
-           CLK : in STD_LOGIC;
-           Q : out STD_LOGIC);
-end D_FlipFlop;
-architecture Behavioral of D_FlipFlop is
-signal aux: std_logic;
+entity EX_Mem is
+    Port ( A : in STD_LOGIC_VECTOR (3 downto 0);
+           B : in STD_LOGIC_VECTOR (3 downto 0);
+           OP : in STD_LOGIC_VECTOR (2 downto 0);
+           QA : out STD_LOGIC_VECTOR (3 downto 0);
+           QB : out STD_LOGIC_VECTOR (3 downto 0);
+           QOP : out STD_LOGIC_VECTOR (2 downto 0);
+           CLK : in STD_LOGIC);
+end EX_Mem;
+
+architecture Behavioral of EX_Mem is
+signal auxA: std_logic_vector(3 to 0);
+signal auxB: std_logic_vector(3 to 0);
+signal auxOP: std_logic_vector(2 to 0);
 begin
-    process(CLK)
+process(CLK)
     begin
         if rising_edge(CLK) then
-            aux <= D;
+            auxA <= A;
+            auxB <= B;
+            auxOP <= OP;
         end if;
     end process;
-    Q <= aux;
+    QOP <= auxOP;
+    QA <= auxA;
+    QB <= auxB;    
 end Behavioral;

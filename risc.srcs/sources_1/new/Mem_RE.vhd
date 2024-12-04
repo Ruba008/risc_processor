@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 12/04/2024 09:36:24 PM
+-- Create Date: 12/04/2024 11:13:32 PM
 -- Design Name: 
--- Module Name: D_FlipFlop - Behavioral
+-- Module Name: Mem_RE - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -31,19 +31,30 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity D_FlipFlop is
-    Port ( D : in STD_LOGIC;
-           CLK : in STD_LOGIC;
-           Q : out STD_LOGIC);
-end D_FlipFlop;
-architecture Behavioral of D_FlipFlop is
-signal aux: std_logic;
+entity Mem_RE is
+    Port ( A : in std_logic_vector(3 to 0);
+           B : in std_logic_vector(3 to 0);
+           OP : in std_logic_vector(2 to 0);
+           QA : out std_logic_vector(3 to 0);
+           QB : out std_logic_vector(3 to 0);
+           QOP : out std_logic_vector(2 to 0);
+           CLK : in STD_LOGIC);
+end Mem_RE;
+
+architecture Behavioral of Mem_RE is
+signal auxA: std_logic_vector(3 to 0);
+signal auxB: std_logic_vector(3 to 0);
+signal auxOP: std_logic_vector(2 to 0);
 begin
-    process(CLK)
+process(CLK)
     begin
         if rising_edge(CLK) then
-            aux <= D;
+            auxA <= A;
+            auxB <= B;
+            auxOP <= OP;
         end if;
     end process;
-    Q <= aux;
+    QOP <= auxOP;
+    QA <= auxA;
+    QB <= auxB;  
 end Behavioral;

@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2023.1 (64-bit)
+# SW Build 3865809 on Sun May  7 15:04:56 MDT 2023
+# IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+# SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+# Start of session at: Wed Dec  4 23:37:33 2024
+# Process ID: 34268
+# Current directory: /home/ruba/risc/risc.runs/synth_1
+# Command line: vivado -log Register_Bank.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Register_Bank.tcl
+# Log file: /home/ruba/risc/risc.runs/synth_1/Register_Bank.vds
+# Journal file: /home/ruba/risc/risc.runs/synth_1/vivado.jou
+# Running On: Ruba, OS: Linux, CPU Frequency: 4300.050 MHz, CPU Physical cores: 4, Host memory: 16590 MB
+#-----------------------------------------------------------
+source Register_Bank.tcl -notrace
