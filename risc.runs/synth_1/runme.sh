@@ -37,4 +37,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log Register_Bank.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source Register_Bank.tcl
+EAStep vivado -log Data_Path.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source Data_Path.tcl
