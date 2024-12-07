@@ -41,7 +41,9 @@ end Memory_Instruction;
 
 architecture Behavioral of Memory_Instruction is
     type memory_array is array (255 downto 0) of std_logic_vector(31 downto 0);
-    signal memory: memory_array := (others => (others => '0'));
+    signal memory: memory_array := (
+        0 => "00000001"&"00000010"&"11111111"&"00000000"  --ecrit 11111111 dans l'address 0001
+        ,others => (others => '0'));
     signal aux: std_logic_vector(31 downto 0);
 begin
     memory_instruction_process: process (CLK)

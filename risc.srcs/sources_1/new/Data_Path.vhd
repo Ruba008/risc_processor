@@ -124,8 +124,8 @@ begin
     );
     Mux1: entity work.Mux(Behavioral)
     port map(
-        A => rb_qa,
-        B => rb_qb,
+        A => lidi_qb,
+        B => rb_qa,
         op => lidi_qop(0),
         S => mux1_s
     );

@@ -1,0 +1,20 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../risc.srcs/sources_1/new/ALU.vhd" \
+"../../../../risc.srcs/sources_1/new/DI_EX.vhd" \
+"../../../../risc.srcs/sources_1/new/IP_compteur.vhd" \
+"../../../../risc.srcs/sources_1/new/Memory_Instruction.vhd" \
+"../../../../risc.srcs/sources_1/new/LI_DI.vhd" \
+"../../../../risc.srcs/sources_1/new/Register_Bank.vhd" \
+"../../../../risc.srcs/sources_1/new/Mux.vhd" \
+"../../../../../Downloads/LC_ALU.vhd" \
+"../../../../risc.srcs/sources_1/new/EX_Mem.vhd" \
+"../../../../risc.srcs/sources_1/new/LC.vhd" \
+"../../../../risc.srcs/sources_1/new/Memory_Bank.vhd" \
+"../../../../risc.srcs/sources_1/new/Mem_RE.vhd" \
+"../../../../../Downloads/LC_banc_registre.vhd" \
+"../../../../risc.srcs/sources_1/new/Data_Path.vhd" \
+"../../../../risc.srcs/sim_1/new/Data_Path_test.vhd" \
+
+# Do not sort compile order
+nosort

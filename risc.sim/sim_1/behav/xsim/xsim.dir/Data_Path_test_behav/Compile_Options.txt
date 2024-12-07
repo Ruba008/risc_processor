@@ -1,0 +1,1 @@
+--incr --debug "typical" --relax --mt "8" -L "xil_defaultlib" -L "secureip" --snapshot "Data_Path_test_behav" "xil_defaultlib.Data_Path_test" -log "elaborate.log" 
