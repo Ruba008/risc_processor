@@ -32,22 +32,22 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity DI_EX is
-    Port ( A : in STD_LOGIC_VECTOR (3 downto 0);
-           OP : in STD_LOGIC_VECTOR (2 downto 0);
-           B : in STD_LOGIC_VECTOR (3 downto 0);
-           C : in STD_LOGIC_VECTOR (3 downto 0);
-           QA : out STD_LOGIC_VECTOR (3 downto 0);
-           QOP : out STD_LOGIC_VECTOR (2 downto 0);
-           QB : out STD_LOGIC_VECTOR (3 downto 0);
-           QC : out STD_LOGIC_VECTOR (3 downto 0);
+    Port ( A : in STD_LOGIC_VECTOR (7 downto 0);
+           OP : in STD_LOGIC_VECTOR (7 downto 0);
+           B : in STD_LOGIC_VECTOR (7 downto 0);
+           C : in STD_LOGIC_VECTOR (7 downto 0);
+           QA : out STD_LOGIC_VECTOR (7 downto 0);
+           QOP : out STD_LOGIC_VECTOR (7 downto 0);
+           QB : out STD_LOGIC_VECTOR (7 downto 0);
+           QC : out STD_LOGIC_VECTOR (7 downto 0);
            CLK : in STD_LOGIC);
 end DI_EX;
 
 architecture Behavioral of DI_EX is
-signal auxA: std_logic_vector(3 to 0);
-signal auxB: std_logic_vector(3 to 0);
-signal auxC: std_logic_vector(3 to 0);
-signal auxOP: std_logic_vector(2 to 0);
+signal auxA: std_logic_vector(7 downto 0);
+signal auxB: std_logic_vector(7 downto 0);
+signal auxC: std_logic_vector(7 downto 0);
+signal auxOP: std_logic_vector(7 downto 0);
 begin
     process(CLK)
     begin

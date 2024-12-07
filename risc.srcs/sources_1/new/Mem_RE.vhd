@@ -32,19 +32,19 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity Mem_RE is
-    Port ( A : in std_logic_vector(3 to 0);
-           B : in std_logic_vector(3 to 0);
-           OP : in std_logic_vector(2 to 0);
-           QA : out std_logic_vector(3 to 0);
-           QB : out std_logic_vector(3 to 0);
-           QOP : out std_logic_vector(2 to 0);
+    Port ( A : in STD_LOGIC_VECTOR (7 downto 0);
+           OP : in STD_LOGIC_VECTOR (7 downto 0);
+           B : in STD_LOGIC_VECTOR (7 downto 0);
+           QA : out std_logic_vector(7 downto 0);
+           QB : out std_logic_vector(7 downto 0);
+           QOP : out std_logic_vector(7 downto 0);
            CLK : in STD_LOGIC);
 end Mem_RE;
 
 architecture Behavioral of Mem_RE is
-signal auxA: std_logic_vector(3 to 0);
-signal auxB: std_logic_vector(3 to 0);
-signal auxOP: std_logic_vector(2 to 0);
+signal auxA: std_logic_vector(7 downto 0);
+signal auxB: std_logic_vector(7 downto 0);
+signal auxOP: std_logic_vector(7 downto 0);
 begin
 process(CLK)
     begin
