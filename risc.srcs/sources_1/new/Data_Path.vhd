@@ -33,14 +33,21 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity Data_Path is
 --  Port ( );
+    Port ( 
+        CLK : in STD_LOGIC;
+        RST: in std_logic;
+        EN: in std_logic;
+        LOAD: in std_logic;
+        Din : in STD_LOGIC_VECTOR (7 downto 0)
+    );
 end Data_Path;
     
 architecture Behavioral of Data_Path is
--- Clock
-signal clk: std_logic;
+
 -- IP signals
-signal rst_ip, load_ip, en_ip: std_logic;
-signal din_ip, dout_ip: std_logic_vector(7 downto 0);
+signal dout_ip: std_logic_vector(7 downto 0);
+-- signal rst_ip, load_ip, en_ip: std_logic;
+-- signal din_ip, dout_ip: std_logic_vector(7 downto 0);
 -- Memory signals
 signal mem_out: std_logic_vector(31 downto 0);
 -- LI/DI
@@ -60,16 +67,29 @@ signal alu_s: std_logic_vector(7 downto 0);
 signal alu_overflow, alu_negative, alu_carry: std_logic;
 -- MUX 2
 signal mux2_s: std_logic_vector(7 downto 0);
---EX/Mem
+-- EX/Mem
 signal exmem_qa, exmem_qb, exmem_qop: std_logic_vector(7 downto 0);
+-- MUX 3
+signal mux3_s : std_logic_vector(7 downto 0);
+-- LC 2
+signal lc2_s: std_logic;
+-- Memory Bank
+signal membank_s: std_logic_vector(7 downto 0);
+-- MUX 4
+signal mux4_s: std_logic_vector(7 downto 0);
+-- Mem/RE
+signal memre_qa, memre_qb, memre_qop: std_logic_vector(7 downto 0);
+-- LC Bank Register
+signal lc_bankreg_s : std_logic;
+
 begin
     IP: entity work.IP_compteur(Behavioral)
     port map(
-        CLK => clk,
-        RST => rst_ip,
-        LOAD => load_ip,
-        EN => en_ip,
-        Din => din_ip,
+        CLK => CLK,
+        RST => RST,
+        LOAD => LOAD,
+        EN => EN,
+        Din => Din,
         Dout => dout_ip
     );
     Mem_instr: entity work.Memory_Instruction(Behavioral)
@@ -94,9 +114,9 @@ begin
     port map(
         addressA => lidi_qb(3 downto 0),
         addressB => lidi_qc(3 downto 0),
-        addressW => rb_addressW,
-        W => rb_w,
-        DATA => rb_data,
+        addressW => memre_qa(3 downto 0),
+        W => lc_bankreg_s,
+        DATA => memre_qb,
         RST => '0',
         CLK => clk,
         QA => rb_qa,
@@ -153,5 +173,49 @@ begin
         QOP =>exmem_qop,
         CLK => clk
     );
-    
+    Mux3: entity work.Mux(Behavioral)
+    port map(
+        A => exmem_qa,
+        B => exmem_qb,
+        op => exmem_qop(5),
+        S => mux3_s
+    );
+    LC2: entity work.LC(Behavioral)
+    port map(
+        OP => exmem_qop,
+        RW => lc2_s
+    );
+   
+    Memory_Bank: entity work.Memory_Bank(Behavioral)
+    port map(
+        address => mux3_s,
+        DATA => exmem_qb,
+        RW => lc2_s,
+        RST => '0',
+        CLK => clk,
+        S => membank_s
+    );
+    Mux4: entity work.Mux(Behavioral)
+    port map(
+        A => membank_s,
+        B => exmem_qb,
+        op => exmem_qop(6),
+        S => mux4_s
+    );
+    Mem_RE: entity work.Mem_RE(Behavioral)
+    port map(
+        A => exmem_qa,
+        B => mux4_s,
+        OP => exmem_qop,
+        QA => memre_qa,
+        QB => memre_qb,
+        QOP => memre_qop,
+        CLK => clk
+    );
+   
+    LC3: entity work.LC_banc_registre(Behavioral)
+    port map(
+        OP => memre_qop,
+        W => lc_bankreg_s
+    );
 end Behavioral;

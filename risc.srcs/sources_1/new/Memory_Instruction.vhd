@@ -44,7 +44,7 @@ architecture Behavioral of Memory_Instruction is
     signal memory: memory_array := (others => (others => '0'));
     signal aux: std_logic_vector(31 downto 0);
 begin
-    memory_instruction_process: process
+    memory_instruction_process: process (CLK)
     begin
         if CLK'event and CLK='1' then
             aux <= memory(to_integer(unsigned(address)));
