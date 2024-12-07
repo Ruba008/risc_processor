@@ -94,12 +94,12 @@ read_vhdl -library xil_defaultlib {
   /home/ruba/risc/risc.srcs/sources_1/new/LI_DI.vhd
   /home/ruba/risc/risc.srcs/sources_1/new/Register_Bank.vhd
   /home/ruba/risc/risc.srcs/sources_1/new/Mux.vhd
-  /home/ruba/Downloads/LC_ALU.vhd
+  /home/ruba/risc/risc.srcs/sources_1/new/LC_ALU.vhd
   /home/ruba/risc/risc.srcs/sources_1/new/EX_Mem.vhd
   /home/ruba/risc/risc.srcs/sources_1/new/LC.vhd
   /home/ruba/risc/risc.srcs/sources_1/new/Memory_Bank.vhd
   /home/ruba/risc/risc.srcs/sources_1/new/Mem_RE.vhd
-  /home/ruba/Downloads/LC_banc_registre.vhd
+  /home/ruba/risc/risc.srcs/sources_1/new/LC_banc_registre.vhd
   /home/ruba/risc/risc.srcs/sources_1/new/Data_Path.vhd
 }
 OPTRACE "Adding files" END { }
