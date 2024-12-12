@@ -3,12 +3,12 @@
 # SW Build 3865809 on Sun May  7 15:04:56 MDT 2023
 # IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
 # SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
-# Start of session at: Sat Dec  7 18:00:11 2024
-# Process ID: 7015
-# Current directory: /home/ruba/risc/risc.runs/synth_1
+# Start of session at: Sat Dec  7 21:26:11 2024
+# Process ID: 581661
+# Current directory: /home/jbao/Bureau/risc_processor/risc.runs/synth_1
 # Command line: vivado -log Data_Path.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Data_Path.tcl
-# Log file: /home/ruba/risc/risc.runs/synth_1/Data_Path.vds
-# Journal file: /home/ruba/risc/risc.runs/synth_1/vivado.jou
-# Running On: Ruba, OS: Linux, CPU Frequency: 4200.059 MHz, CPU Physical cores: 4, Host memory: 16591 MB
+# Log file: /home/jbao/Bureau/risc_processor/risc.runs/synth_1/Data_Path.vds
+# Journal file: /home/jbao/Bureau/risc_processor/risc.runs/synth_1/vivado.jou
+# Running On: srv-tp04, OS: Linux, CPU Frequency: 799.994 MHz, CPU Physical cores: 32, Host memory: 134754 MB
 #-----------------------------------------------------------
 source Data_Path.tcl -notrace

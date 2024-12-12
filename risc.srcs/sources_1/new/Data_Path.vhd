@@ -53,9 +53,7 @@ signal mem_out: std_logic_vector(31 downto 0);
 -- LI/DI
 signal lidi_qa, lidi_qop, lidi_qb, lidi_qc: std_logic_vector(7 downto 0);
 --Registers bank
-signal rb_qa, rb_qb, rb_data: std_logic_vector(7 downto 0);
-signal rb_w: std_logic;
-signal rb_addressW: std_logic_vector(3 downto 0);  
+signal rb_qa, rb_qb: std_logic_vector(7 downto 0);
 -- MUX 1
 signal mux1_s: std_logic_vector(7 downto 0);
 -- DI/EX
@@ -95,7 +93,7 @@ begin
     Mem_instr: entity work.Memory_Instruction(Behavioral)
     port map(
         address => dout_ip,
-        CLK => clk,
+        CLK => CLK,
         S => mem_out
     );
     LI_DI: entity work.LI_DI(Behavioral)
@@ -108,7 +106,7 @@ begin
         QOP => lidi_qop,
         QB => lidi_qb,
         QC => lidi_qc,
-        CLK => clk
+        CLK => CLK
     );
     Bank_registres: entity work.Register_Bank(Behavioral)
     port map(
@@ -117,8 +115,8 @@ begin
         addressW => memre_qa(3 downto 0),
         W => lc_bankreg_s,
         DATA => memre_qb,
-        RST => '0',
-        CLK => clk,
+        RST => RST,
+        CLK => CLK,
         QA => rb_qa,
         QB => rb_qb
     );
@@ -139,7 +137,7 @@ begin
         QOP => diex_qop,
         QB => diex_qb,
         QC => diex_qc,
-        CLK => clk
+        CLK => CLK
     );
     LC_ALU: entity work.LC_ALU(Behavioral)
     port map(
@@ -171,7 +169,7 @@ begin
         QA => exmem_qa,
         QB => exmem_qb,
         QOP =>exmem_qop,
-        CLK => clk
+        CLK => CLK
     );
     Mux3: entity work.Mux(Behavioral)
     port map(
@@ -191,8 +189,8 @@ begin
         address => mux3_s,
         DATA => exmem_qb,
         RW => lc2_s,
-        RST => '0',
-        CLK => clk,
+        RST => RST,
+        CLK => CLK,
         S => membank_s
     );
     Mux4: entity work.Mux(Behavioral)
@@ -210,7 +208,7 @@ begin
         QA => memre_qa,
         QB => memre_qb,
         QOP => memre_qop,
-        CLK => clk
+        CLK => CLK
     );
    
     LC3: entity work.LC_banc_registre(Behavioral)

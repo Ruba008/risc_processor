@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1733590809" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/ALU.dcp">
-  <File Type="VDS-TIMINGSUMMARY" Name="Data_Path_timing_summary_synth.rpt"/>
+<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1733603167" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/ALU.dcp">
   <File Type="RDS-DCP" Name="Data_Path.dcp"/>
   <File Type="RDS-UTIL-PB" Name="Data_Path_utilization_synth.pb"/>
-  <File Type="RDS-UTIL" Name="Data_Path_utilization_synth.rpt"/>
-  <File Type="RDS-PROPCONSTRS" Name="Data_Path_drc_synth.rpt"/>
-  <File Type="RDS-RDS" Name="Data_Path.vds"/>
-  <File Type="REPORTS-TCL" Name="Data_Path_reports.tcl"/>
-  <File Type="VDS-TIMING-PB" Name="Data_Path_timing_summary_synth.pb"/>
   <File Type="PA-TCL" Name="Data_Path.tcl"/>
+  <File Type="RDS-UTIL" Name="Data_Path_utilization_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="Data_Path_reports.tcl"/>
+  <File Type="RDS-RDS" Name="Data_Path.vds"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/ALU.vhd">

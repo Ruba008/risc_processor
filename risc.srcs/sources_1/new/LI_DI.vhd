@@ -49,6 +49,7 @@ signal auxB: std_logic_vector(7 downto 0);
 signal auxC: std_logic_vector(7 downto 0);
 signal auxOP: std_logic_vector(7 downto 0);
 begin
+    -- modèle flip flop D 
     process(CLK)
     begin
         if rising_edge(CLK) then

@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "/home/ruba/risc/risc.runs/synth_1/Data_Path.tcl"
+  variable script "/home/jbao/Bureau/risc_processor/risc.runs/synth_1/Data_Path.tcl"
   variable category "vivado_synth"
 }
 
@@ -70,37 +70,38 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_msg_config -id {Common 17-41} -limit 10000000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a35tcpg236-1
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir /home/ruba/risc/risc.cache/wt [current_project]
-set_property parent.project_path /home/ruba/risc/risc.xpr [current_project]
+set_property webtalk.parent_dir /home/jbao/Bureau/risc_processor/risc.cache/wt [current_project]
+set_property parent.project_path /home/jbao/Bureau/risc_processor/risc.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property board_part_repo_paths {/home/ruba/.Xilinx/Vivado/2023.1/xhub/board_store/xilinx_board_store} [current_project]
+set_property board_part_repo_paths {/home/jbao/.Xilinx/Vivado/2023.1/xhub/board_store/xilinx_board_store} [current_project]
 set_property board_part digilentinc.com:basys3:part0:1.2 [current_project]
-set_property ip_output_repo /home/ruba/risc/risc.cache/ip [current_project]
+set_property ip_output_repo /home/jbao/Bureau/risc_processor/risc.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_vhdl -library xil_defaultlib {
-  /home/ruba/risc/risc.srcs/sources_1/new/ALU.vhd
-  /home/ruba/risc/risc.srcs/sources_1/new/DI_EX.vhd
-  /home/ruba/risc/risc.srcs/sources_1/new/IP_compteur.vhd
-  /home/ruba/risc/risc.srcs/sources_1/new/Memory_Instruction.vhd
-  /home/ruba/risc/risc.srcs/sources_1/new/LI_DI.vhd
-  /home/ruba/risc/risc.srcs/sources_1/new/Register_Bank.vhd
-  /home/ruba/risc/risc.srcs/sources_1/new/Mux.vhd
-  /home/ruba/risc/risc.srcs/sources_1/new/LC_ALU.vhd
-  /home/ruba/risc/risc.srcs/sources_1/new/EX_Mem.vhd
-  /home/ruba/risc/risc.srcs/sources_1/new/LC.vhd
-  /home/ruba/risc/risc.srcs/sources_1/new/Memory_Bank.vhd
-  /home/ruba/risc/risc.srcs/sources_1/new/Mem_RE.vhd
-  /home/ruba/risc/risc.srcs/sources_1/new/LC_banc_registre.vhd
-  /home/ruba/risc/risc.srcs/sources_1/new/Data_Path.vhd
+  /home/jbao/Bureau/risc_processor/risc.srcs/sources_1/new/ALU.vhd
+  /home/jbao/Bureau/risc_processor/risc.srcs/sources_1/new/DI_EX.vhd
+  /home/jbao/Bureau/risc_processor/risc.srcs/sources_1/new/IP_compteur.vhd
+  /home/jbao/Bureau/risc_processor/risc.srcs/sources_1/new/Memory_Instruction.vhd
+  /home/jbao/Bureau/risc_processor/risc.srcs/sources_1/new/LI_DI.vhd
+  /home/jbao/Bureau/risc_processor/risc.srcs/sources_1/new/Register_Bank.vhd
+  /home/jbao/Bureau/risc_processor/risc.srcs/sources_1/new/Mux.vhd
+  /home/jbao/Bureau/risc_processor/risc.srcs/sources_1/new/LC_ALU.vhd
+  /home/jbao/Bureau/risc_processor/risc.srcs/sources_1/new/EX_Mem.vhd
+  /home/jbao/Bureau/risc_processor/risc.srcs/sources_1/new/LC.vhd
+  /home/jbao/Bureau/risc_processor/risc.srcs/sources_1/new/Memory_Bank.vhd
+  /home/jbao/Bureau/risc_processor/risc.srcs/sources_1/new/Mem_RE.vhd
+  /home/jbao/Bureau/risc_processor/risc.srcs/sources_1/new/LC_banc_registre.vhd
+  /home/jbao/Bureau/risc_processor/risc.srcs/sources_1/new/Data_Path.vhd
 }
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -113,7 +114,7 @@ foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
 }
 set_param ips.enableIPCacheLiteLoad 1
 
-read_checkpoint -auto_incremental -incremental /home/ruba/risc/risc.srcs/utils_1/imports/synth_1/ALU.dcp
+read_checkpoint -auto_incremental -incremental /home/jbao/Bureau/risc_processor/risc.srcs/utils_1/imports/synth_1/ALU.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }

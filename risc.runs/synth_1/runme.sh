@@ -8,9 +8,9 @@
 # 
 
 if [ -z "$PATH" ]; then
-  PATH=/tools/Xilinx/Vivado/2023.1/ids_lite/ISE/bin/lin64:/tools/Xilinx/Vivado/2023.1/bin
+  PATH=/usr/local/insa/Xilinx/Vivado/2023.1/ids_lite/ISE/bin/lin64:/usr/local/insa/Xilinx/Vivado/2023.1/bin
 else
-  PATH=/tools/Xilinx/Vivado/2023.1/ids_lite/ISE/bin/lin64:/tools/Xilinx/Vivado/2023.1/bin:$PATH
+  PATH=/usr/local/insa/Xilinx/Vivado/2023.1/ids_lite/ISE/bin/lin64:/usr/local/insa/Xilinx/Vivado/2023.1/bin:$PATH
 fi
 export PATH
 
@@ -21,7 +21,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/home/ruba/risc/risc.runs/synth_1'
+HD_PWD='/home/jbao/Bureau/risc_processor/risc.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

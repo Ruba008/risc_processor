@@ -58,7 +58,7 @@ begin
             end if;
         end if;
     end process;
-   
+   -- lecture
    process (addressA, addressB, registers, DATA, W, addressW)
    begin
        if W='1' then

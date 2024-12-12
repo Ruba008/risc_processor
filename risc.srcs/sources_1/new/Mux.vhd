@@ -40,6 +40,7 @@ end Mux;
 
 architecture Behavioral of Mux is
 begin
+    -- Ce processus choisit la sortie S en fonction du signal 'op'
     mux_process: process(A, B, op)
         begin
             if op = '0' then

@@ -49,7 +49,7 @@ signal result_mult: std_logic_vector (17 downto 0);
 signal aux: std_logic_vector (7 downto 0);
 begin
     result_sum <= ('0' & A) + ('0' & B) when CRT="000" else (Others => '0');
-    result_mult <= ('0' & A)*('0' & B) when CRT="000" else (others  => '0');
+    result_mult <= ('0' & A)*('0' & B) when CRT="010" else (others  => '0');
     result_dif <= ('0' & A)-('0' & B) when CRT="001" else (others => '0');
     
     -- ('0' & A) is used to tranform A in 9 bits (+1 bit for the flags)

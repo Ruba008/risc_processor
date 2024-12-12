@@ -49,15 +49,16 @@ architecture Behavioral of Memory_Bank is
 begin
     memory_bank_process: process (CLK)
     begin
+        -- Enregistrez la valeur stockée en mémoire à l'adresse spécifiée et mettez-la dans 'aux'
         if CLK'event and CLK='1' then
             if RST = '1' then
                 memory <= (others => (others => '0'));
-            elsif RW = '0' then
-                memory(to_integer(unsigned(address))) <= DATA;
             elsif RW = '1' then
+                memory(to_integer(unsigned(address))) <= DATA;
+            elsif RW = '0' then
                 aux <= memory(to_integer(unsigned(address)));
             end if;
         end if;
     end process;
-    S <= aux when RW = '1' else (others => 'U');
+    S <= aux ;
 end Behavioral;

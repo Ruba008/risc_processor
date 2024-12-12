@@ -43,21 +43,28 @@ entity IP_compteur is
 end IP_compteur;
 
 architecture Behavioral of IP_compteur is
-signal current_addr : std_logic_vector(7 downto 0) := (others => '0'); 
+    signal current_addr : std_logic_vector(7 downto 0):= (others => '0');
+    signal counter : integer := 0;
 begin
     ip_process: process(CLK, RST)
     begin
-        if RST = '0' then
-            --rst
+        if RST = '1' then
+            -- reset compteur
+            counter <= 0;
             current_addr <= (others => '0');
         elsif rising_edge(CLK) then
             if LOAD = '1' then
-                -- Load address entre
+                -- Load données
                 current_addr <= Din;
-            elsif EN = '0' then
-                current_addr <= current_addr + 1;
-            end if;
+            elsif EN = '1' then
+                if counter < 9 then
+                    counter <= counter +1; -- incrémenter le compteur
+                else
+                    counter <= 0;
+                    current_addr <= current_addr + 1;
+                end if;
+            end if;   
         end if;
-     end process;
+    end process;
     Dout <= current_addr;      
 end Behavioral;

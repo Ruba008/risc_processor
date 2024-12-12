@@ -54,12 +54,6 @@ architecture Behavioral of Data_Path_test is
     signal load_tb : STD_LOGIC := '0';
     signal din_tb : STD_LOGIC_VECTOR (7 downto 0) := (others => '0');
 
-    -- Pour la vérification
-    signal reg_data_tb : STD_LOGIC_VECTOR (7 downto 0);
-    signal reg_addr_src : STD_LOGIC_VECTOR (3 downto 0);
-    signal reg_addr_dst : STD_LOGIC_VECTOR (3 downto 0);
-
-    constant CLK_PERIOD : time := 10 ns; -- Période de l'horloge
 
 begin
     -- Instance du DUT (Device Under Test)
@@ -73,40 +67,32 @@ begin
         );
 
     -- Génération de l'horloge
-    clk_process : process
+    process
     begin
         clk_tb <= '0';
-        wait for CLK_PERIOD / 2;
+        wait for 5ns;
         clk_tb <= '1';
-        wait for CLK_PERIOD / 2;
+        wait for 5ns;
     end process;
 
     -- Processus principal du testbench
     tb_process : process
     begin
         -- Initialisation
-        rst_tb <= '1';
-        en_tb <= '0';
-        load_tb <= '0';
-        wait for CLK_PERIOD;
-
         rst_tb <= '0';
-        en_tb <= '1';
+        en_tb <= '0';
 
-        -- Configuration des registres et de l'instruction COP
-        -- Supposons que l'opcode pour COP est 0x01
-        reg_addr_src <= "0010"; -- Source : R2
-        reg_addr_dst <= "0101"; -- Destination : R5
-        reg_data_tb <= "00000000"; -- Valeur à écrire dans R2
-
-        -- Charger la valeur dans le registre source R2
+        -- Configuration des registres et de l'instruction AFC
+        -- Premier instruction dans memoire
         load_tb <= '1'; -- Activer LOAD pour simuler le chargement dans le registre
-        din_tb <= reg_data_tb; -- Valeur à charger
-        wait for CLK_PERIOD;
+        din_tb <= "00000000"; -- Valeur à charger
+        wait for 10ns;
+        -- Avance IP
         load_tb <= '0';
-
-        wait for 10 * CLK_PERIOD;
-        wait;
+        en_tb <= '1'; 
+        wait for 550ns;
+        
+        wait;  --Manipule qu'une fois 
     end process;
 
 end Behavioral;
